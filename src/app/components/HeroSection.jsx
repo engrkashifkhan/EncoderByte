@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative max-w-7xl mx-auto w-full px-6 md:pl-18 lg:pl-28">
-        <div className="text-center  md:text-left max-w-xl text-white">
+        <div className="text-center  md:text-left text-white">
           <h1 className="text-2xl md:text-2xl  font-bold leading-tight drop-shadow-lg">
             a bespoke
           </h1>
