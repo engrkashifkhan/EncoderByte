@@ -36,11 +36,11 @@ export default function ProjectSection() {
 
           {/* BUTTONS */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-1">
-            <button className="bg-blue-400 hover:bg-transparent border hover:text-blue-400 text-white px-6 py-7 rounded-md font-medium transition">
+            <button className="bg-blue-400 hover:bg-transparent border hover:text-blue-400 text-white px-2 md:px-6 rounded-md font-medium transition">
               READ CASE STUDY
             </button>
 
-            <button className="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-6 py-3 rounded-md font-medium transition">
+            <button className="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-3 md:px-6 py-3 rounded-md font-medium transition">
               Contact Us
             </button>
           </div>

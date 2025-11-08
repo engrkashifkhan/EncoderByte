@@ -22,7 +22,7 @@ export default function Hero() {
             COMPANY
           </h1>
 
-          <p className="mt-4 text-lg opacity-90 drop-shadow-md">
+          <p className="mt-4 text-md md:text-lg opacity-90 drop-shadow-md">
             Software Development That Ensures Growth Of Your Business.
           </p>
 

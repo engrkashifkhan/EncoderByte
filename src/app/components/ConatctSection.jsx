@@ -2,7 +2,7 @@
 
 export default function ContactSection() {
   return (
-    <section className="w-full max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-[60%_40%] min-h-[600px] px-7 ">
+    <section className="w-full max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-[60%_40%] min-h-[600px] md:px-7 px-4 ">
       
       {/* LEFT PANEL */}
       <div className="bg-[#3f3f3f] text-white px-8 md:px-16 py-14 flex flex-col justify-start">
