@@ -10,15 +10,15 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto w-full px-6 md:pl-18 lg:pl-28">
         <div className="text-center  md:text-left max-w-xl text-white">
-          <h1 className="text-3xl md:text-2xl  font-bold leading-tight drop-shadow-lg">
+          <h1 className="text-2xl md:text-2xl  font-bold leading-tight drop-shadow-lg">
             a bespoke
           </h1>
 
-          <h1 className="text-3xl md:text-5xl font-semibold leading-tight drop-shadow-lg whitespace-nowrap">
+          <h1 className="text-2xl md:text-5xl font-semibold leading-tight drop-shadow-lg whitespace-nowrap">
             SOFTWARE DEVELOPMENT
           </h1>
 
-          <h1 className="text-3xl text-blue-300 md:text-5xl font-semibold leading-tight drop-shadow-lg">
+          <h1 className="text-2xl text-blue-300 md:text-5xl font-semibold leading-tight drop-shadow-lg">
             COMPANY
           </h1>
 
