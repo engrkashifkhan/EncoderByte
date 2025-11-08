@@ -12,7 +12,7 @@ export default function Navbar({ navLinks = [], services = [] }) {
   return (
     <header className="w-full z-50 sticky top-0">
       {/* Main Navbar */}
-      <nav className="lg:px-22 md:px-20 px-10 py-4 flex justify-between items-center bg-black text-white border-b shadow-sm relative">
+      <nav className="lg:px-22 md:px-20 px-4 py-4 flex justify-between items-center bg-black text-white border-b shadow-sm relative">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
