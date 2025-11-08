@@ -14,11 +14,11 @@ export default function Hero() {
             a bespoke
           </h1>
 
-          <h1 className="text-xl md:text-5xl font-semibold leading-tight drop-shadow-lg whitespace-nowrap">
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight drop-shadow-lg wrap md:whitespace-nowrap">
             SOFTWARE DEVELOPMENT
           </h1>
 
-          <h1 className="text-xl text-blue-300 md:text-5xl font-semibold leading-tight drop-shadow-lg">
+          <h1 className="text-4xl text-blue-300 md:text-5xl font-semibold leading-tight drop-shadow-lg">
             COMPANY
           </h1>
 
