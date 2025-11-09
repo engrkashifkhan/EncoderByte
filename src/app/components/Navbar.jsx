@@ -1,13 +1,29 @@
 "use client";
 
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar({ navLinks = [], services = [] }) {
   const [openDropdown, setOpenDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const servicesRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (servicesRef.current && !servicesRef.current.contains(e.target)) {
+        setOpenDropdown(false);
+      }
+    }
+
+    if (mobileMenuOpen && openDropdown) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [mobileMenuOpen, openDropdown]);
 
   return (
     <header className="w-full z-50 sticky top-0">
@@ -64,7 +80,7 @@ export default function Navbar({ navLinks = [], services = [] }) {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50" onClick={() => setMobileMenuOpen(false)}>
           <div
-            className="fixed top-[72px] left-0 w-full bg-white shadow-lg lg:hidden"
+            className="fixed top-[62px] left-0 w-full bg-white shadow-lg lg:hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <ul className="flex flex-col gap-4 py-4 px-6 bg-gray-700 font-medium text-white">
@@ -80,7 +96,10 @@ export default function Navbar({ navLinks = [], services = [] }) {
                     </button>
 
                     {openDropdown && (
-                      <div className="ml-4 mt-2 space-y-4 p-4 bg-gray-900 rounded-md">
+                      <div
+                        ref={servicesRef}
+                        className="ml-4 mt-2 pb-10 space-y-4 p-4 bg-gray-900 rounded-md"
+                      >
                         <h4 className="font-bold text-lg text-blue-400 text-center">
                           SERVICES WE PROVIDE
                         </h4>
@@ -118,30 +137,39 @@ export default function Navbar({ navLinks = [], services = [] }) {
         </div>
       )}
 
-      {/* Desktop Services Dropdown */}
+      {/* DESKTOP DROPDOWN WITH CLICK OUTSIDE */}
       {openDropdown && (
-        <div className="hidden lg:flex absolute left-0 w-full bg-black/95 backdrop-blur-sm border-t border-gray-700 shadow-xl py-8 text-white z-40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="hidden lg:block">
+          <div
+            className="fixed inset-0 z-30"
+            onClick={() => setOpenDropdown(false)}
+          />
 
-            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-blue-400">
-              SERVICES WE PROVIDE
-            </h3>
+          <div className="absolute left-0 w-full bg-black/95 backdrop-blur-sm border-t border-gray-700 shadow-xl py-8 text-white z-40">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-              {services.map((service, index) => (
-                <div key={index} className="space-y-2 sm:space-y-3 px-4">
-                  <h4 className="font-semibold text-base sm:text-lg text-white">
-                    {service.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-300">
-                    {service.desc}
-                  </p>
-                </div>
-              ))}
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-blue-400">
+                SERVICES WE PROVIDE
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                {services.map((service, index) => (
+                  <div key={index} className="space-y-2 sm:space-y-3 px-4">
+                    <h4 className="font-semibold text-base sm:text-lg text-white">
+                      {service.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-300">
+                      {service.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
             </div>
           </div>
         </div>
       )}
+
     </header>
   );
 }
